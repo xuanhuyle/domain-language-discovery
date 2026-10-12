@@ -60,3 +60,23 @@ The fetch tool failed with DNS errors rather than proxy 403s, so the owner shoul
 - Governing files: unchanged.
 - Spend: no paid API calls, purchases, data access or subscriptions. Tool use was within the existing Claude subscription.
 - Next owner decision: change the environment's network access, then re-invoke Task 004; or explicitly accept a narrower source base, which would need a recorded owner decision because Task 004 requires independently hosted primary sources.
+
+## Re-test after the owner's network change (2026-10-12, about 17:25 UTC)
+The owner reported updating the cloud environment's network access and re-invoked Task 004 with authorization to continue if Step 0 passed. Step 0 was repeated in the same running session. **It failed again; discovery was not run.**
+
+| Route | Hosts tested | Result |
+|---|---|---|
+| curl via session proxy | www.ecfr.gov, www.fda.gov, www.sec.gov, www.faa.gov, eur-lex.europa.eu, arxiv.org, en.wikipedia.org, catala-lang.org, www.federalregister.gov, www.govinfo.gov, www.fmcsa.dot.gov, www.ntsb.gov, accordproject.org | every one `curl: (56) CONNECT tunnel failed, response 403` |
+| curl | github.com/CatalaLang/catala | HTTP 403 |
+| WebFetch tool | www.ecfr.gov (49 CFR 395.3), www.fda.gov (Food Code 2022), www.sec.gov, en.wikipedia.org | every one `getaddrinfo ENOTFOUND <host>` |
+
+The proxy status endpoint logged each curl denial as `connect_rejected` at 17:25 UTC, after the reported change, so the denials are current rather than cached.
+
+Most likely explanation, an inference not verified: the updated network setting has not reached this already-running session. The environment documentation does not say whether a running session picks up a network change.
+
+Owner options:
+- Start Task 004 in a new session, or after this session's container has been replaced, and repeat Step 0 there.
+- Re-check that the hosts needed are on the Allowed domains list, or that the access level was raised. The list in "What would unblock discovery" above is a starting point.
+- Confirm that the WebFetch tool can resolve those hosts too; its failures are DNS errors, not proxy 403s.
+
+Status unchanged: no candidates, citations, scores or shortlist were produced or simulated; governing files unchanged; no paid spend.
