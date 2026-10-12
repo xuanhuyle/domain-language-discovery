@@ -1,5 +1,5 @@
 # Research Protocol
-Status: DRAFT v0.2 (2026-10-12) — proposed; NOT approved. Read with CHARTER.md.
+Status: APPROVED v0.3 (2026-10-12) — owner-approved and frozen; approval recorded in DECISION_LOG.md. Read with CHARTER.md.
 This file is the only home of gate definitions, terms and procedures; CHARTER.md sets thesis, scope, caps and authority. Prompts and templates restate parts for convenience; on any conflict, CHARTER.md and this file govern and the agent stops and reports it.
 
 ## 1. Definitions

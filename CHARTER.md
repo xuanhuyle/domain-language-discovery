@@ -1,6 +1,6 @@
 # Research Charter — Domain Language Discovery
-Status: DRAFT v0.2 — proposed 2026-10-12; NOT approved. No research gate is passed until the owner approves this version.
-Version: 0.2 (2026-10-12). Supersedes draft 0.1 only if the owner approves it; rationale in reviews/001-v0.2-diff-rationale.md.
+Status: APPROVED v0.3 (2026-10-12) — owner-approved and frozen; approval recorded in DECISION_LOG.md. No research gate has been passed.
+Version: 0.3 (2026-10-12). Supersedes drafts 0.1 and 0.2; rationale in reviews/001-v0.2-diff-rationale.md and reviews/002-origin-scope-change.md.
 
 This charter sets the thesis and boundaries. Gate definitions, terms and procedures live only in RESEARCH_PROTOCOL.md.
 
@@ -29,7 +29,7 @@ Keep these evaluations separate. A technical success is not automatically a star
 - Test on unseen cases, with reference outcomes that do not come from the proposed mechanism's own rule model, and with explicit failure modes.
 - Favor reproducible public-domain or legitimately accessible inputs. Do not infer private enterprise data access.
 - Respect solo-founder constraints: limited coding background, AI-assisted implementation (often from mobile), limited distribution, and low experiment budget.
-- No domain class is favored by construction, including telecommunications, finance, legal/governance and enterprise software. No inherited winner from other projects.
+- Targeted search effort may be devoted to a documented motivating hypothesis (including contract transposition), provided a genuinely independent open search also runs. Search allocation bias and source richness must be disclosed. No domain class receives preferential gate standards, score weights, finalist slots or portfolio decisions. No inherited winner from other projects.
 - Do not transfer an architecture from Sophon or another repository without explicitly justifying why it is needed.
 - No language/compiler/platform implementation before the owner approves an experiment plan. Rule sketches, paper probes and paper prototypes are allowed earlier.
 - No self-authorized pivot, no moving experimental goalposts, no retroactive success criteria.
@@ -44,7 +44,7 @@ One initial discovery cycle:
 - then a portfolio decision by the owner.
 Any expansion of candidates, finalists, experiments, cycles or budget requires explicit owner approval.
 
-Caps (OWNER-SET; not set in v0.2): calendar duration of the cycle; owner hours per week; API/tool spend per discovery run and per experiment. Agents never fill these values. Until the owner sets them or explicitly defers them in DECISION_LOG.md, agents report observable usage and ask before any paid run or any work beyond the step the owner has authorized.
+Caps (OWNER-SET; not set as of v0.3): calendar duration of the cycle; owner hours per week; API/tool spend per discovery run and per experiment. Agents never fill these values. Until the owner sets them or explicitly defers them in DECISION_LOG.md, agents report observable usage and ask before any paid run or any work beyond the step the owner has authorized.
 
 ## Authority
 Only the owner approves: freezing this charter and the protocol; the shortlist; each experiment plan (including its spend); any extension of scope, budget or cycles; any pivot; and G3/G4 verdicts. What counts as a valid approval and how it is recorded is defined in RESEARCH_PROTOCOL.md § 9 (Decisions, approvals, HOLD and frozen status). Agents propose; they never approve, and silence is never approval. Agents may propose edits only as separate reviews or pull requests.
@@ -58,4 +58,4 @@ Progress means reduction of a specified uncertainty backed by auditable evidence
 - Program: stop the program, unless the owner approves a new cycle on new evidence, when two fair confirmatory experiments both fail their frozen success rules, or when an owner-set cap is reached without a G3 GO and the owner declines an extension.
 
 ## Current position
-Pre-G0. No preferred industry, target user, language specification, architecture, or startup thesis has been approved. v0.2 is a proposal awaiting owner review.
+Pre-G0. No preferred industry, target user, language specification, architecture, or startup thesis has been approved. v0.3 is approved; discovery has not been run.

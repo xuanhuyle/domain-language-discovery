@@ -1,5 +1,5 @@
 # Deep Research Prompt 01 — Opportunity discovery
-Status: DRAFT v0.2 — DO NOT RUN until the owner explicitly approves CHARTER.md and RESEARCH_PROTOCOL.md v0.2 and that approval is recorded in DECISION_LOG.md.
+Status: v0.3 — governed by CHARTER.md and RESEARCH_PROTOCOL.md APPROVED v0.3 (2026-10-12). DO NOT RUN without a separate explicit owner instruction to start discovery; tool, source-verification and spend conditions are in the DECISION_LOG.md entry approving v0.3.
 
 ## Role
 Act as an independent research team combining operations research, programming-language design, enterprise software analysis and adversarial due diligence. You are not selling a DSL or proposing a startup by default.
@@ -24,6 +24,8 @@ The owner's starting point is the contract-transposition problem described in re
 - **Stream B — open.** Unrelated industries and invariant types, with equal opportunity to win.
 
 Planning heuristic: about 5–8 candidates from stream A, only if credible evidence exists; spend the rest on stream B. No padding of stream A, no reserved card or finalist slots, no scoring bonus, and no exclusion of contract candidates. Contract families count toward the industry target only where they belong to genuinely different industries. Tag every row and card with its stream. Do not assert that a new programming language is necessary.
+
+To counter unequal source richness, when at least five credible stream-B candidates warrant full cards, create no more than five stream-A cards within the ten-card cap during initial discovery. If that condition is not met, report the evidence limitation and any excess stream-A cards explicitly. This is a coverage control for initial evaluation, NOT a cap on stream-A shortlist ranking, and never forces weak stream-B candidates through G0.
 
 Each micro-workflow must describe who does exactly what, to which inputs, under which governing rules, constraints and exceptions, how often, with which consequences for error, and how correctness can be established without relying on the proposed mechanism's own rules.
 
