@@ -22,3 +22,11 @@ Append dated decision entries. Never rewrite history; supersede with a new entry
 - Open owner decisions: listed in reviews/001-v0.2-diff-rationale.md § (d).
 - Next review: owner decides those items and either approves v0.2 explicitly (the agent records the approval here) or requests changes.
 - Reopen condition: owner revises scope, thresholds or sequencing, with rationale recorded here.
+
+## 2026-10-12 — Propose two-stream discovery framing from the Rulebook origin (NOT approved)
+- Decision: record the owner's Rulebook contract-transposition motivation as a hypothesis (research/00-rulebook-origin.md) and frame prompt 01 as two streams: A (contract transposition, credit agreements first) and B (open). Requested by Task 002 (prompts/02-rulebook-origin-discovery-scope.md).
+- Status: Proposed by an agent; NOT approved. v0.2 remains unapproved; discovery is not authorized. CHARTER.md, RESEARCH_PROTOCOL.md, gates, scoring, baselines and thresholds are unchanged.
+- Observed: Rulebook Part IV is analysis and a plan, not evidence; its only execution (Execution 01) ended "C. INSUFFICIENT EVIDENCE" on a different question.
+- Alternative: keep a single undifferentiated search. Not chosen because the owner's actual question would then be sampled only by chance.
+- Effect on prior decisions: none; the 2026-10-12 v0.2 proposal stands. Possible tension with CHARTER "No domain class is favored by construction" is set out in reviews/002-origin-scope-change.md for the owner.
+- Reopen condition: owner rejects or resizes stream A, or amends the charter clause.

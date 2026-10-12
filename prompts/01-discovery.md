@@ -18,6 +18,13 @@ Do not prejudge any domain for or against. Candidates whose key invariant concer
 - Detailed cards for at most 10 candidates.
 - Propose a shortlist of preferably 3 finalists plus up to 2 reserves.
 
+## Discovery streams
+The owner's starting point is the contract-transposition problem described in research/00-rulebook-origin.md. Treat it as a motivating hypothesis, not an approved direction. Run two streams inside the scope above (same 20–30 candidates, at least 6 industries, at most 10 cards, same gates and scorecard):
+- **Stream A — contract transposition.** Narrow, evidence-backed workflows in a few distinct contract families. Examine credit agreements and their amendments substantively first; add other contract families only where evidence suggests higher yield. Credit-agreement examples, given as examples only and not presumed suitable: financial-covenant calculation under agreement-specific definitions; amendment and effective-date handling; lender consents and waivers; payment waterfalls; conditions precedent. Each stream A candidate names (i) forward transposition, from a clause or amendment to the implementation it should change, and (ii) reverse verification, from a change in the implementation back to compatibility with the current in-force text, where relevant; and (iii) the residual a language could not solve: interpretation, binding to data that may not exist, legal authority and ratification, accountability. Investigate Catala, L4, Symboleo, the Accord Project and other relevant incumbents, including operational tools already used for these workflows, from current first-party documentation as baselines, not as presupposed gaps.
+- **Stream B — open.** Unrelated industries and invariant types, with equal opportunity to win.
+
+Planning heuristic: about 5–8 candidates from stream A, only if credible evidence exists; spend the rest on stream B. No padding of stream A, no reserved card or finalist slots, no scoring bonus, and no exclusion of contract candidates. Contract families count toward the industry target only where they belong to genuinely different industries. Tag every row and card with its stream. Do not assert that a new programming language is necessary.
+
 Each micro-workflow must describe who does exactly what, to which inputs, under which governing rules, constraints and exceptions, how often, with which consequences for error, and how correctness can be established without relying on the proposed mechanism's own rules.
 
 Gather:
@@ -39,11 +46,11 @@ For every important claim give a link, publication/version date when known, acce
 - No candidate gets special treatment because of founder background or previous projects.
 
 ## Deliverables
-A. Coverage map: industries and source types reached, source quality, blind spots, and the split of candidates by primary invariant type (RESEARCH_PROTOCOL § 2).
-B. A table of all discovered micro-workflows: operator / decision / action, frequency, existing solutions, outcome gap, demand signals, proposed mechanism, reference-outcome path, key uncertainty, source links, and a proposed G0 verdict.
+A. Coverage map: industries and source types reached, source quality, blind spots, and the split of candidates by primary invariant type and by stream (RESEARCH_PROTOCOL § 2). Disclose selection biases, including that stream A received dedicated search effort and draws mainly on public rule text.
+B. A table of all discovered micro-workflows: stream (A or B), operator / decision / action, frequency, existing solutions, outcome gap, demand signals, proposed mechanism, reference-outcome path, key uncertainty, source links, and a proposed G0 verdict.
 C. Cards using research/01-discovery/CANDIDATE_TEMPLATE.md for up to 10 best-evidenced candidates, each with a G1 paper probe. Uncarded rows are marked "discovered — not carded" (never STOP).
 D. Proposed G0/G1/G2 verdicts for carded candidates, with G2 marked provisional; every HOLD names missing evidence and one bounded next action. These are proposals, not gate decisions.
-E. Ranked shortlist proposal (preferably 3 plus up to 2 reserves) using the RESEARCH_PROTOCOL § 4 scorecard: raw scores, confidence, sensitivity without the founder-fit category, re-checked key G0 links, and an adversarial case AGAINST each finalist.
+E. Ranked shortlist proposal (preferably 3 plus up to 2 reserves) using the RESEARCH_PROTOCOL § 4 scorecard: raw scores, confidence, sensitivity without the founder-fit category, re-checked key G0 links, an adversarial case AGAINST each finalist, and a side-by-side comparison of streams A and B on that same scorecard (counts, gate outcomes, scores, source quality).
 F. The next fact-finding step for each finalist. Do not propose building a compiler or language.
 
 ## Final stress-test
