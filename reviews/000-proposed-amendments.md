@@ -9,6 +9,7 @@ Status: **PROPOSAL.** Nothing in this file has been applied. No governing docume
 
 - Each amendment names the document and section, the verbatim **BEFORE** text (or an insertion anchor), the proposed **AFTER** text, a one-sentence rationale, the review defect ids it closes, the cluster it belongs to in the main review (C01–C15), its bureaucracy cost, and whether it is a judgment call reserved to the owner.
 - Every BEFORE text and insertion anchor was re-verified with `grep -F` against the files on the branch head before this file was written (count below). The one exception is RD-01, the GitHub repository description, which is repository metadata rather than file content.
+- Defect identifiers on the "Closes defects" lines (for example A1, F2, J3) are internal working-record identifiers; the published reference is the cluster id (C01–C15) in section 2 of the main review.
 - `[owner sets: …]` marks a number the owner must supply. Auditors' suggested defaults appear inline and are judgments, not evidence.
 - Amendments are grouped by document and ordered by position within each document. Where two amendments touch neighbouring text, the later one assumes the earlier has landed (see bundle 10 below for ordering).
 
@@ -17,7 +18,7 @@ Status: **PROPOSAL.** Nothing in this file has been applied. No governing docume
 These groups must land together so no document contradicts another:
 1. Oracle classes: RP-06 (G2 classes 1/2/3) is the definition used by RP-14 (synthetic admissibility), RP-15 (class-1 fallback when no adjudicator), CT-04 (card oracle-class field) and CH-08 Program STOP (a) ('class-1 or class-2 oracle'). None of those four should land without RP-06.
 2. G3 binding and thresholds: RP-23 (G3 bound to the preregistered threshold met by the ablated delta), RP-21 (item 7 freeze point 'before any arm is implemented or run'), RP-22 (indicative paragraph: same freeze wording, paired design, comparative regression rule), RP-20 (item 6 strata and detectability; 'pilot counts toward the two-experiment budget') and CH-08 Candidate STOP ('preregistered ablations', 'departure from PLAN.md not recorded before the holdout run') all refer to one another; landing RP-23 without RP-21/RP-22 leaves 'threshold preregistered in the approved PLAN.md' with the old dev-set tuning window.
-3. Arms and fairness: RP-17 (D defined vs B and C; LLM roles), RP-16 (four arms, exception rule, non-LLM incumbent disclosure), RP-18 (equal effort, same implementer, freeze), RP-12 (baseline ladder that RP-16 and P2-02 cite as 'ladder rung' / 'baseline ladder') and P2-02 (prompt 02 arms restated with 'same LLM'). RP-16's 'no ladder rung covering the primitive' has no referent without RP-12; P2-02's 'chosen by the baseline ladder' likewise. RP-23's 'strongest fair alternative among A, B and C (in practice the better of B and C)' matches RP-17's 'primary contrast is D versus the better of B and C' and CH-08's wording; the A3 charter principle is left unchanged (do-not-change) so RP-16 carries the disclosure.
+3. Arms and fairness: RP-17 (D defined vs B and C; LLM roles), RP-16 (four arms, exception rule, non-LLM incumbent disclosure), RP-18 (equal effort, same implementer, freeze), RP-12 (baseline ladder that RP-16 and P2-02 cite as 'ladder rung' / 'baseline ladder') and P2-02 (prompt 02 arms restated with 'same LLM'). RP-16's 'no ladder rung covering the primitive' has no referent without RP-12; P2-02's 'chosen by the baseline ladder' likewise. RP-23's 'best-performing of A, B and C on the primary metric' matches RP-17's primary contrast, RP-22's per-metric 'strongest baseline' and CH-08's 'strongest fair alternative among A, B and C'; the charter principle listing the three baseline classes is left unchanged (see do-not-change) so RP-16 carries the disclosure.
 4. G1 definitions and their consumers: RP-05 (definitions and expressibility probe) is referenced by RP-09 ('named mechanism class', 'B and C cannot enforce with documented features'), RP-13 ('reuse the G1 probe encodings'), CT-03 ('reference the G1 probe encoding'), RP-10 ('natively supported (which also reopens G1)') and CH-08 Program STOP (a) ('non-trivial invariant (G1)'). RP-05's 'the strongest existing alternatives' presumes the ladder of RP-12 for its 'confirmed against incumbent documentation in the adversarial review' clause.
 5. Cards, counts and screening: RP-02 (table row for every candidate, ten cards for G0 GO/HOLD, 'discovered — not carded'), RP-04 (Stage 2 screen scope), P1-04 (Deliverable C) and P1-05 (Deliverable D) state one rule in four places and must land together; CT-05's 'suggested verdict' lines and CT-02's '(G0–G2 survivors only)' assume that rule. RP-03's invariant-class split reads CT-05's new classification field; RP-01's channel list is what CT-05's 'discovery channel' records.
 6. Approvals, log, caps and stopping: CH-07 (approval = DECISION_LOG entry; five approval points) is presupposed by RP-07 ('when the owner approves the shortlist'), RP-11 ('shortlist approval entry'), DL-01 (entry fields and frozen status), RP-25 (phase entry as ledger, 'cost so far against the CHARTER caps') and CH-06 (caps recorded in the phase-end ledger; 'from charter approval'). CH-08 Program STOP (c) refers to 'a cap in Scope and timebox', which exists only if CH-06 lands; CH-08 REDESIGN's 'a HOLD still open at shortlist approval counts as not passing' restates RP-07's rule and the two wordings must stay identical. CH-08 absorbs old condition (ii) into Program STOP (a); nothing else in the documents cites '(ii)' by number, and RP-07's reference is to 'the CHARTER stopping conditions' generically so the renumbering is safe.
@@ -154,7 +155,7 @@ An approval is a dated DECISION_LOG.md entry committed by the owner (an agent ma
 #### CH-08 — § Stopping conditions
 - Closes defects: I1, B2, B1, I3 (cluster C09)
 - Bureaucracy cost: low. Owner judgment call: yes.
-- Rationale: Separates candidate, search and program outcomes with a named trigger and outcome each, caps redesign at one cycle, ties (iii) to the preregistered thresholds, and absorbs the redundant condition (ii) into Program STOP (a); depends on CH-06 for the cap and RP-07 for oracle classes.
+- Rationale: Separates candidate, search and program outcomes with a named trigger and outcome each, caps redesign at one cycle, ties (iii) to the preregistered thresholds, and absorbs the redundant condition (ii) into Program STOP (a); depends on CH-06 for the cap and RP-06 for oracle classes.
 
 **BEFORE**
 
@@ -288,7 +289,7 @@ Each gate is GO / HOLD / STOP, with dated rationale and reopening evidence.
 **AFTER**
 
 ```text
-Each gate is GO / HOLD / STOP, with dated rationale. A HOLD names the missing fact(s), the bounded step that would obtain each, and a review date no later than the end of the current cycle; a STOP names reopening evidence. A HOLD still open when the owner approves the shortlist counts as not passing G0–G2 for the CHARTER stopping conditions and is recorded as parked with its reopening evidence; parking is not a failure finding.
+Each gate is GO / HOLD / STOP, with dated rationale and reopening evidence. A HOLD additionally names the missing fact(s), which are its reopening evidence, the bounded step that would obtain each, and a review date no later than the end of the current cycle. A HOLD still open when the owner approves the shortlist counts as not passing G0–G2 for the CHARTER stopping conditions and is recorded as parked with its reopening evidence; parking is not a failure finding.
 ```
 
 #### RP-08 — § Rank surviving candidates
@@ -430,7 +431,7 @@ Up to five G0–G2 contenders advance once the owner, or a separate verification
 #### RP-16 — § Experimental preregistration (before implementation)
 - Closes defects: B5, E4, G7, A3 (cluster C06)
 - Bureaucracy cost: low. Owner judgment call: yes.
-- Rationale: Closes the 'where feasible' escape by which the person building D can drop the arm most likely to beat it, keeps a legitimate owner-approved infeasibility exception, states what G3 may then claim, and adds disclosure of an unrun non-LLM incumbent instead of rewriting the charter principle (A3).
+- Rationale: Closes the 'where feasible' escape by which the person building D can drop the arm most likely to beat it, keeps a legitimate owner-approved infeasibility exception, states what G3 may then claim, and adds disclosure of an unrun non-LLM incumbent instead of rewriting the charter principle that lists the three baseline classes.
 
 **BEFORE**
 
@@ -459,7 +460,7 @@ Up to five G0–G2 contenders advance once the owner, or a separate verification
 
 ```text
    D. same LLM + proposed semantics (DSL syntax OPTIONAL). The plan names the construct(s) D adds that B lacks and that C does not already provide (an enforced invariant, a typed effect or rule-version rule, a solver or checker call, or similar) and states that D with those constructs removed is B. The D-versus-B difference measures semantic value; the D-versus-C difference measures novelty over existing engines.
-   For every arm, PLAN.md states the LLM's role(s) at each stage: authoring the rule artifact from authoritative sources, extracting structured case inputs, making the runtime decision, applying rule changes. Roles, budgets and instructions are identical across B, C and D except for the named target representation; any difference in role is itself part of the mechanism under test and must be named in the plan before implementation; A's runtime role (LLM decides) is recorded as the difference it is. The primary contrast is D versus the better of B and C on the primary endpoint; D versus A alone is a floor check, not a result.
+   For every arm, PLAN.md states the LLM's role(s) at each stage: authoring the rule artifact from authoritative sources, extracting structured case inputs, making the runtime decision, applying rule changes. Roles, budgets and instructions are identical across B, C and D except for the named target representation; any difference in role is itself part of the mechanism under test and must be named in the plan before implementation; A's runtime role (LLM decides) is recorded as the difference it is. The primary contrast is D versus the best-performing of A, B and C on the primary endpoint; D versus A alone is not a result.
 ```
 
 #### RP-18 — § Experimental preregistration (before implementation)
@@ -562,7 +563,7 @@ GO only if the new semantic mechanism adds measurable benefit on the preregister
 **AFTER**
 
 ```text
-GO only if the effect attributable to the semantic mechanism, not the full pipeline, meets the threshold preregistered in the approved PLAN.md against the strongest fair alternative among A, B and C (in practice the better of B and C; D versus A alone is a floor check): every non-semantic component of D (retrieval, validators, retry loops, tools) is either present in B and C or removed in a preregistered ablation (item 6) whose result is the one scored; and the effect holds on the preregistered holdout cases of the same micro-workflow (item 6); broader generalization claims are out of scope for G3. A G3 GO is recorded as 'mechanism M improves metric X by Y over alternative R on task T (holdout N)'. It validates the semantic mechanism in whatever form D took (library, schema, checker or syntax) and does not validate a surface language. Any claim that a new language is needed requires a separate, later, owner-approved and preregistered experiment comparing D-as-language with D-as-host-library on a benefit stated in advance that a library cannot deliver (e.g., non-programmer authoring, static checks the host cannot express).
+GO only if the effect attributable to the semantic mechanism, not the full pipeline, meets the threshold preregistered in the approved PLAN.md against the strongest fair alternative, defined as the best-performing of A, B and C on the primary metric (D versus A alone is not sufficient): every non-semantic component of D (retrieval, validators, retry loops, tools) is either present in B and C or removed in a preregistered ablation (item 6) whose result is the one scored; and the effect holds on the preregistered holdout cases of the same micro-workflow (item 6); broader generalization claims are out of scope for G3. A G3 GO is recorded as 'mechanism M improves metric X by Y over alternative R on task T (holdout N)'. It validates the semantic mechanism in whatever form D took (library, schema, checker or syntax) and does not validate a surface language. Any claim that a new language is needed requires a separate, later, owner-approved and preregistered experiment comparing D-as-language with D-as-host-library on a benefit stated in advance that a library cannot deliver (e.g., non-programmer authoring, static checks the host cannot express).
 ```
 
 #### RP-24 — § G4 — strategic result
@@ -659,7 +660,7 @@ Who authors and changes the governing rules today, in what artifact (code, decis
 #### CT-02 — § Candidate: [specific micro-workflow]
 - Closes defects: K8 (cluster C14)
 - Bureaucracy cost: low. Owner judgment call: no.
-- Rationale: Adds the datum hypothesis (b) and the maintenance threshold depend on, surfaces oracle cost at G2, and scopes per-card scores to survivors so 20–30 cards are not padded.
+- Rationale: Adds the datum hypothesis (b) and the maintenance threshold depend on, surfaces oracle cost at G2, and scopes per-card scores to survivors so the ten cards are not padded with scores for non-survivors.
 
 **BEFORE**
 
@@ -912,10 +913,10 @@ Research program to find a narrow operational workflow where domain-specific sem
 
 ## Items deliberately left unchanged
 
-See section 6 of the main review for the full list with reasons. In short: the Mission phrase "potentially expressed as a new programming language"; the four-arm A/B/C/D structure and "DSL syntax OPTIONAL"; the two-payoff split; the scorecard weights; the indicative 30% / 50% figures; the scope counts (20–30, >=6, up to 5, up to 2); the charter principle listing the three baseline classes (the LLM-scope question is an owner decision, so disclosure was placed in RP-16 instead); CLAUDE.md's brevity; prompt 02's eight-item structure; the existing DECISION_LOG entry (append-only).
+See section 7 of the main review for the full list with reasons. In short: the Mission phrase "potentially expressed as a new programming language"; the four-arm A/B/C/D structure and "DSL syntax OPTIONAL"; the two-payoff split; the scorecard weights; the indicative 30% / 50% figures; the scope counts (20–30, >=6, up to 5, up to 2); the charter principle listing the three baseline classes (the LLM-scope question is an owner decision, so disclosure was placed in RP-16 instead); CLAUDE.md's brevity; prompt 02's eight-item structure; the existing DECISION_LOG entry (append-only).
 
 ## Verification record
 
-All 51 BEFORE texts and insertion anchors across CHARTER.md (8), RESEARCH_PROTOCOL.md (25), CLAUDE.md (1), DECISION_LOG.md (1), research/01-discovery/CANDIDATE_TEMPLATE.md (7, the three gate lines of CT-05 checked individually), prompts/01-discovery.md (6) and prompts/02-adversarial-review.md (3) were verified verbatim with grep -F against the files on branch research/initial-charter-protocol (HEAD 4a9366b, clean working tree); 51 matched, 0 failed. The one BEFORE that could not be grep-verified is RD-01, the GitHub repository description 'finding a new programming language', which is repository metadata, not file content; it was taken exactly from the task context. No repository file was edited.
+All 51 BEFORE texts and insertion anchors across CHARTER.md (8), RESEARCH_PROTOCOL.md (25), CLAUDE.md (1), DECISION_LOG.md (1), research/01-discovery/CANDIDATE_TEMPLATE.md (7, the three gate lines of CT-05 checked individually), prompts/01-discovery.md (6) and prompts/02-adversarial-review.md (3) were verified verbatim with grep -F against the files on branch research/initial-charter-protocol (HEAD 4a9366b, clean working tree); 51 matched, 0 failed. The one BEFORE that could not be grep-verified is RD-01, the GitHub repository description 'finding a new programming language', which is repository metadata, not file content; it was read from the repository metadata returned with the PR #1 record on 2026-10-12 and cannot be re-verified from repository files. No repository file was edited.
 
 Re-verification at file-generation time: 51 BEFORE anchors matched with grep -F; 0 failed.
