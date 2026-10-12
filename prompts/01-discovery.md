@@ -1,51 +1,57 @@
 # Deep Research Prompt 01 — Opportunity discovery
-Status: READY FOR OWNER REVIEW; DO NOT RUN UNTIL THE CHARTER AND PROTOCOL ARE APPROVED.
+Status: DRAFT v0.2 — DO NOT RUN until the owner explicitly approves CHARTER.md and RESEARCH_PROTOCOL.md v0.2 and that approval is recorded in DECISION_LOG.md.
 
 ## Role
 Act as an independent research team combining operations research, programming-language design, enterprise software analysis and adversarial due diligence. You are not selling a DSL or proposing a startup by default.
 
 ## Research question
-Across unrelated operational domains, where could explicit domain-specific semantics — possibly but not necessarily a new programming language — give AI-driven software a **decisive, measurable** advantage over strong existing solutions in the correctness, updateability, verifiability or economics of repeated decisions?
+Across unrelated operational domains, where could explicit domain-specific semantics — implemented as a library, checker, schema or, only optionally, a new language — give software a **material, measurable** advantage over strong existing solutions in the correctness, change/update effort, independent verifiability or lifecycle cost of repeated decisions?
 
 ## Binding method
-Read CHARTER.md and RESEARCH_PROTOCOL.md. Respect GO/HOLD/STOP gates and evidence categories. Do not prejudge telecom, contracts, regulation, governance, financial analysis, or any other domain.
+Read CHARTER.md, RESEARCH_PROTOCOL.md and DECISION_LOG.md first. RESEARCH_PROTOCOL.md is the only source of gate definitions (G0–G2), terms and procedures; CHARTER.md sets the scope numbers. This prompt restates parts of them for convenience; if anything here conflicts with them, they govern, and you report the conflict. If you cannot read the repository files, say so at the top of your output and follow this prompt.
 
-## Discovery scope
-Investigate at least 6 genuinely distinct industries, including some outside finance, telecom and governance. Aim for 20–30 narrowly specified micro-workflows. Report fewer if sources don't support them — no filler, no speculation presented as fact.
+Do not prejudge any domain for or against. Candidates whose key invariant concerns units, time/sequence, capacity, provenance/authority or physical safety count equally with candidates based on rule-text interpretation.
 
-Each micro-workflow must describe who does exactly what, to which inputs, under which governing rules and exceptions, how often, with which consequences for error, and how an independent reviewer can tell whether the result is right.
+## Discovery scope (copied from CHARTER § Scope and timebox)
+- At least 6 genuinely distinct industries, including several outside telecommunications, finance, legal/governance and enterprise software.
+- Aim for 20–30 narrowly specified micro-workflows; report fewer if sources do not support them — no filler, no speculation presented as fact.
+- Detailed cards for at most 10 candidates.
+- Propose a shortlist of preferably 3 finalists plus up to 2 reserves.
+
+Each micro-workflow must describe who does exactly what, to which inputs, under which governing rules, constraints and exceptions, how often, with which consequences for error, and how correctness can be established without relying on the proposed mechanism's own rules.
 
 Gather:
-(1) primary domain sources and governing standards;
-(2) actual operational pain or spending evidence;
-(3) incumbent commercial products, open-source software and existing DSLs/engines;
-(4) publicly accessible test cases, or a credible path to an independent oracle;
-(5) explicit candidate semantic primitives that differ from a nice-to-have UI syntax.
+1. primary domain sources, governing standards, SOPs and recorded outcomes (incident, recall, inspection or enforcement reports; public datasets);
+2. operational pain and early demand signals (spend, losses, workarounds, incumbent pricing, buyer reachability) — signals only, never validation;
+3. incumbent commercial products, open-source software and existing DSLs, rules, constraint or workflow engines, from their own documentation;
+4. publicly accessible test cases or a credible path to reference outcomes of provenance E or I (RESEARCH_PROTOCOL § 1);
+5. explicit candidate semantic mechanisms that differ from a nicer syntax.
 
-For every important claim provide a link, publication/version date when known, access date, and what the evidence actually establishes. If a link cannot be verified, say so. Distinguish evidence absence from evidence of absence. Do not invent interviews, market size or pricing.
+For every important claim give a link, publication/version date when known, access date, a quotation or a paraphrase marked as such, and what the evidence actually establishes. If a link cannot be opened, say so. Distinguish absence of evidence from evidence of absence. Do not invent interviews, market size or pricing.
 
 ## Anti-kill and anti-hype rules
-- Existing competitors and frontier-model capabilities are evidence to investigate, not a veto.
+- Competitors and frontier-model capabilities indicate demand and set the baseline; they are neither a veto nor proof of opportunity.
 - Theoretical capability of a frontier model is not established operational performance.
-- A model's occasional failure is not evidence that a new DSL will help.
+- A model's occasional failure is not evidence that new semantics will help.
 - A new grammar or syntax is not a defensible kernel.
-- A problem solvable equally well with typed JSON/conventional code or a mature DSL does not justify new language engineering.
+- That an existing tool *can* encode a behaviour is not enough to reject a candidate; ask at what cost, with what checks, and how robustly under rule change (G1 is plausibility, not proof).
+- A problem solved equally well, at comparable cost, by typed code or an existing engine does not justify new semantics or a new language.
 - No candidate gets special treatment because of founder background or previous projects.
 
 ## Deliverables
-A. Discovery coverage map: industries and source quality; blind spots.
-B. A table of 20–30 micro-workflows with precise operator/decision/action, existing solutions, outcome gap, proposed semantic advantage, accessible validation, key uncertainty, source links.
-C. Detailed one-page candidate cards for the ten best-evidenced opportunities using research/01-discovery/CANDIDATE_TEMPLATE.md.
-D. G0/G1/G2 GO/HOLD/STOP screen with citations and missing evidence, not premature declarations of competitive victory.
-E. Ranked up-to-five shortlist using the protocol's weighted scorecard, raw scores, confidence, sensitivity test removing founder-fit weight, and an adversarial case AGAINST each finalist.
-F. Specific recommended next fact-finding step for each finalist. Do not propose building a compiler yet.
+A. Coverage map: industries and source types reached, source quality, blind spots, and the split of candidates by primary invariant type (RESEARCH_PROTOCOL § 2).
+B. A table of all discovered micro-workflows: operator / decision / action, frequency, existing solutions, outcome gap, demand signals, proposed mechanism, reference-outcome path, key uncertainty, source links, and a proposed G0 verdict.
+C. Cards using research/01-discovery/CANDIDATE_TEMPLATE.md for up to 10 best-evidenced candidates, each with a G1 paper probe. Uncarded rows are marked "discovered — not carded" (never STOP).
+D. Proposed G0/G1/G2 verdicts for carded candidates, with G2 marked provisional; every HOLD names missing evidence and one bounded next action. These are proposals, not gate decisions.
+E. Ranked shortlist proposal (preferably 3 plus up to 2 reserves) using the RESEARCH_PROTOCOL § 4 scorecard: raw scores, confidence, sensitivity without the founder-fit category, re-checked key G0 links, and an adversarial case AGAINST each finalist.
+F. The next fact-finding step for each finalist. Do not propose building a compiler or language.
 
 ## Final stress-test
 Before concluding, answer:
 - What are we assuming that we cannot yet substantiate?
-- Which strong incumbents or standards might make the language redundant?
-- Would this opportunity remain attractive if frontier AI improved substantially?
+- Which strong incumbents or standards might make the proposed mechanism redundant, and at what cost would they cover it?
+- Which part of each finalist's advantage rests on structural properties (determinism, static checks, binding to the authoritative source, auditability, safe change propagation), and which part rests on currently measured model error rates? Name any concrete, currently observable capability that would erode the second part, with a dated source; do not treat speculative future capability as fact.
 - Which candidate looks attractive only because sources are thin?
 - What concrete disconfirming evidence would reverse the ranking?
 
-Do not modify charter, freeze gates, or begin implementation. Save raw notes/sources separately from synthesis. Research completion is not gate approval.
+Do not modify the charter or protocol, approve gates, or begin implementation. Save raw notes and sources separately from the synthesis. Research completion is not gate approval.
